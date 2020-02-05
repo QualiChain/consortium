@@ -1,0 +1,19 @@
+{
+  "name": "qualichain-higher-education-module",
+  "version": "1.0.0",
+  "description": "QualiChain",
+  "main": "HE_App.js",
+  "dependencies": {
+    "chokidar": "^3.0.2",
+    "electron": "^6.0.0",
+    "ethereumjs-tx": "^2.1.0",
+    "web3": "^1.2.0",
+    "ipfs": "^0.37.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node HE_App.js"
+  },
+  "author": "Diogo Serranito",
+  "license": "ISC"
+}

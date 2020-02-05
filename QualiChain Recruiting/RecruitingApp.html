@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>QualiChain</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-t-50 p-b-90">
+				<form class="login100-form validate-form flex-sb flex-w">
+					<span class="login100-form-title p-b-51">
+						<img src="css/qualichain-logo.png" alt="QualiChain" width="370" height="90">
+					</span>
+
+					<div class="response" id="result">
+						<p align="center" class="responseText" id="resultText">Result</p>
+					</div>
+					
+					<div id="inputBoxHE" class="wrap-input100 validate-input m-b-16" data-validate = "Higher Education Institution ID is required">
+						<input class="input100" type="text" id="HEId" placeholder="Issuer ID">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div id="inputBox" class="wrap-input100 validate-input m-b-16" data-validate = "Civil ID is required">
+						<input class="input100" type="text" id="civilId" placeholder="Civil ID">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-17">
+						<button type="button" onclick="verifyCertificate()" class="login100-form-btn" id = "mybutton">
+							Verify
+						</button>
+					</div>
+				</form>
+				<input class="upload" id="upload-file" type="file" />
+			</div>
+		</div>
+	</div>
+	
+	<script src="recruitingScript.js"></script>
+
+</body>
+</html>
