@@ -1,4 +1,10 @@
-Falta 
+# Fenix
+https://github.com/FenixEdu/fenixedu-academic - baseline fénix
+https://github.com/ist-dsi/fenixedu-ist - módulos fénix IST
+https://github.com/ist-dsi-archive/fenix-ist - dados sintéticos
+
+
+
 O IPFS serve para providenciar PDF às entidades que o requerem - não é usado no projeto
 ----------
 QualiChain Recruiting
