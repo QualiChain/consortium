@@ -1,0 +1,18 @@
+{
+  "name": "qualichain-consortium",
+  "version": "1.0.0",
+  "description": "QualiChain",
+  "main": "main.js",
+  "dependencies": {
+    "ethereumjs-tx": "^2.1.0",
+    "web3": "^1.2.0"
+  },
+  "devDependencies": {
+    "electron": "^6.0.0"
+  },
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Diogo Serranito",
+  "license": "ISC"
+}
