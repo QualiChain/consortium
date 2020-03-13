@@ -7,8 +7,7 @@ This proof of concept contains two mock accounts for the Ethereum blockchain, wh
 **Note**: Some operations may fail when using the same account, e.g., deploying a smart contract to an address that already contains such smart contract.
 
 ## QualiChain Higher Education Module
-This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked.
-
+This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked. The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
  
 ### Steps
 On the ``QualiChain Higher Education Module`` directory run:
