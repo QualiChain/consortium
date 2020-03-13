@@ -2,6 +2,9 @@
 The Qualichain Portuguese PoC tackles an interaction between a higher education organization, IST (or Técnico Lisboa) and AMA.
 This prototype contains several modules, and mock data, at the ``Certificate Examples`` folder.
 Transactions on the Ethereum Ropsten network can be verified here: https://ropsten.etherscan.io/
+This proof of concept contains two mock accounts for the Ethereum blockchain, which can be used to perform the demo. 
+
+**Note**: Some operations may fail when using the same account, e.g., deploying a smart contract to an address that already contains such smart contract.
 
 ## QualiChain Higher Education Module
 This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked.
