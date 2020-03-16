@@ -10,18 +10,20 @@ This proof of concept contains two mock accounts for the Ethereum blockchain, wh
 This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked. The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
  
 ### Steps
-On the ``QualiChain Higher Education Module`` directory run:
-1. npm install
+On the ``QualiChain Higher Education Module`` directory:
+
+0.check that you have installed nodejs version >= 10.0.0 and npm version >= 6.0.0
+
+1.run ``npm install``
 
 Steps 2 and 3 are optional, since an account is already created, and a smart contract deployed.
 
 2.To create an account belonging to a higher education institution, follow the next steps: 
-run ``node createAccount_script``. ``
+run ``node createAccount_script``
 
-* Copy the output of the created address to line 5 of ``createAccount_script`
-* Copy the output of the private key to line 6 ``createAccount_script`, without the `0x` part of the string.
+* Copy the output of the private key to line 6 ``deployContract_script.js``, without the initial `0x`.
 
-3.To deploy the school contract smart contract (optional), with the created credentails, run ``node deployContract_script``
+3.To deploy the school contract smart contract, with the created credentails, run ``node deployContract_script.js``
 Note: you may have to Reclaim ETH for the Ropsten network: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
  
 4.Run ``npm run start``
