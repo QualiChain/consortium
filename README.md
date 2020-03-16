@@ -34,6 +34,8 @@ run ``node createAccount_script.js``
  
 4. Run ``npm run start``
 
+**Note**: In case of ``Error: Returned error: replacement transaction underpriced``, wait for the pending transactions to be confirmed, and try again.
+
 ## QualiChain Recruiting
 
 This component is responsible for the diploma validation. It receives a PDF file representing a diploma as an input. 
