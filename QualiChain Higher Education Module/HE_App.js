@@ -115,16 +115,33 @@ function revokeCertificate(path) {
 
 
 async function registerIPFS(completePath, fileBytes) {
-  if(IPFSNode == null) {
-    IPFSNode = await IPFS.create({silent: true});
-  }
+  const node = await IPFS.create({silent:true});
+  const version = await node.version()
 
+  console.log('Version:', version.version)
   const path = completePath.split('/')[2];
 
-  const filesAdded = await IPFSNode.add({
-    path: path,
-    content: fileBytes
-  })
+  try
+  {
+    console.log('Adding certificate to IPFS')
+    const { globSource } = IPFS
+    const filesAdded = await node.add({
+      path: completePath,
+      content: fileBytes
+    })
 
-  console.log('Added file:', filesAdded[0].path, ' Multihash:', filesAdded[0].hash);
+    for await (const result of node.add(fileBytes)) {
+      console.log(result)
+      return;
+    }
+
+    console.log("Multihash of certificate: " * result.cid.CID,)
+	return "File saved"
+	 
+  }
+  catch (error)
+  {
+	  console.log(error)
+  }
+
 }
