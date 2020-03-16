@@ -6,6 +6,9 @@ This proof of concept contains two mock accounts for the Ethereum blockchain, wh
 
 **Note**: Some operations may fail when using the same blockcgain (Ethereum, Ropsten,...) account, e.g., deploying a smart contract with an account that has already been used to deploy the same smart contract.
 
+**Note**: Software tested on:
+* Ubuntu 18.04 bionic, 3 GB RAM, running as a virtual machine (VirtualBox)
+
 ## QualiChain Higher Education Module
 This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked. The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
  
