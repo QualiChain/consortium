@@ -19,7 +19,7 @@ On the ``QualiChain Higher Education Module`` directory:
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
 2. To create an account belonging to a higher education institution, follow the next steps: 
-run ``node createAccount_script``
+run ``node createAccount_script.js``
 
 * Copy the output of the private key to line 6 ``deployContract_script.js``, without the initial `0x`.
 
