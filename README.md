@@ -12,21 +12,21 @@ This module adds a certificate to the blockchain when it is pasted at the ``regi
 ### Steps
 On the ``QualiChain Higher Education Module`` directory:
 
-0.check that you have installed nodejs version >= 10.0.0 and npm version >= 6.0.0
+0. check that you have installed nodejs version >= 10.0.0 and npm version >= 6.0.0
 
-1.run ``npm install``
+1. run ``npm install``
 
-Steps 2 and 3 are optional, since an account is already created, and a smart contract deployed.
+Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
-2.To create an account belonging to a higher education institution, follow the next steps: 
+2. To create an account belonging to a higher education institution, follow the next steps: 
 run ``node createAccount_script``
 
 * Copy the output of the private key to line 6 ``deployContract_script.js``, without the initial `0x`.
 
-3.To deploy the school contract smart contract, with the created credentails, run ``node deployContract_script.js``
+3. To deploy the school contract smart contract, with the created credentails, run ``node deployContract_script.js``
 Note: you may have to Reclaim ETH for the Ropsten network: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
  
-4.Run ``npm run start``
+4. Run ``npm run start``
 
 ## QualiChain Recruiting
 
