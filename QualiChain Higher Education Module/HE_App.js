@@ -61,6 +61,9 @@ function registerCertificate(path) {
   var hash = hashFunction.digest();
 
   var numberId = parseInt(id);
+  if (isNaN(numberId))   {
+    throw new Error("The name of the certificate should contain only integers, and end in .pdf")
+  }
   var hashBytes = '0x' + hash.toString('hex');
 
   var data = contract.methods.registerCertificate(numberId,hashBytes).encodeABI();  
