@@ -18,7 +18,7 @@ Software tested on:
 This is the module executed by a HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed.The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
 **Note**: Certificate names must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
 
-### Steps
+### Installing and running
 On the ``QualiChain Higher Education Module`` directory:
 
 1. run ``npm install`` then ``mkdir Certificates``and ``mkdir Certificates/registered_certificates``
