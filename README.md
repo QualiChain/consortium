@@ -52,7 +52,7 @@ Such PDF is titled with the Issuer ID + Civil ID, which constitutes the ID of th
 
 In case the calculated digest of the diploma matches the digest of the provided PDF, the diploma is valid. Otherwise, it is invalid.
 
-### Steps
+### Installing and running
 
 On ``QualiChain Recruiting`` directory run:
 1. npm install
@@ -62,6 +62,9 @@ On ``QualiChain Recruiting`` directory run:
 In case of errors at the npm install phase, make sure you have both build-essential and libkrb5-dev utilities installed: 
 * sudo apt-get install build-essential
 * sudo apt-get install libkrb5-dev
+
+### Testing
+1. xxxxxx
 
 
 ## QualiChain Consortium
