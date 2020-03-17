@@ -39,8 +39,10 @@ run ``node createAccount_script.js``
 **Note**: In case of ``Error: Returned error: replacement transaction underpriced``, wait for the pending transactions to be confirmed, and try again.
 
 ### Testing
-1. Create a file called 123456789.pdf and move it to folder ``Certificates/registered_certificates``
+1. Insert file 12345678.pdf in folder ``Certificates/registered_certificates`` by running ``cp ../Certificate\ Examples/12345678.pdf Certificates/registered_certificates``
+
 2. Access https://ropsten.etherscan.io/, insert the address of the account (e.g., the IST account in file ``accounts.txt``) and observe that a transaction was generated. 
+
 3. The final test is to run the QualiChain Recruiting module, next:
 
 ## QualiChain Recruiting
