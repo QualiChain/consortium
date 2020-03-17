@@ -19,7 +19,7 @@ This module adds a certificate to the blockchain when it is pasted at the ``regi
 ### Steps
 On the ``QualiChain Higher Education Module`` directory:
 
-1. run ``npm install``
+1. run ``npm install`` then ``mkdir Certificates``and ``mkdir Certificates/registered_certificates``
 
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
