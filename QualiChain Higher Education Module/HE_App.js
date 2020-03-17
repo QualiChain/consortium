@@ -25,11 +25,13 @@ web3.eth.getTransactionCount(account, (err,count) => {
   const registerWatcher = chokidar.watch(certificateDirectory + "/registered_certificates" , {
     ignored: /(^|[\/\\])\../,
     persistent: true,
-    awaitWriteFinish: true
+    awaitWriteFinish: true,
+    ignorePermissionErrors: true
   });
 
   registerWatcher.on('add', function(path) {
     registerCertificate(path);
+
   });
 
   const revokeWatcher = chokidar.watch(certificateDirectory + "/revoked_certificates" , {
@@ -39,13 +41,18 @@ web3.eth.getTransactionCount(account, (err,count) => {
   });
 
   revokeWatcher.on('add', function(path) {
+    setTimeout(function() {
+      console.log('Deleting a certificate');
+    }, 1000);
     revokeCertificate(path);
+
   })
 });
 
 console.log("QualiChain Higher Education Application is running...");
 
 function registerCertificate(path) {
+  console.log("Building the transaction")
   var id = path.split('/')[2].split('.')[0];
   var fileBytes = fs.readFileSync(path);
 
@@ -109,35 +116,31 @@ function revokeCertificate(path) {
   txCount++;
 
   web3.eth.sendSignedTransaction(txData, (err,txHash) => {
-    console.log('Err: ' + err + ' Transaction hash: ', txHash);
+    console.log("Certificate deleted")
+    console.log('Transaction hash: ', txHash);
   })
 }
 
 
 async function registerIPFS(completePath, fileBytes) {
-  const node = await IPFS.create({silent:true});
-  const version = await node.version()
+  if(IPFSNode == null) {
+    IPFSNode = await IPFS.create({silent: true});
+  }
 
-  console.log('Version:', version.version)
   const path = completePath.split('/')[2];
 
   try
   {
     console.log('Adding certificate to IPFS')
-    const { globSource } = IPFS
-    const filesAdded = await node.add({
+    const filesAdded = await IPFSNode.add({
       path: completePath,
       content: fileBytes
     })
 
-    for await (const result of node.add(fileBytes)) {
-      console.log(result)
-      return;
+    for await (const result of IPFSNode.add(fileBytes)) {
+      console.log("IPFS file path: " + result.path)
+      console.log("IPFS file multihash: " + JSON.stringify(result.cid.multihash))
     }
-
-    console.log("Multihash of certificate: " * result.cid.CID,)
-	return "File saved"
-	 
   }
   catch (error)
   {
