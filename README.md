@@ -15,7 +15,7 @@ Software tested on:
 
 ## QualiChain Higher Education Module
 This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. If a certificate is moved to the ``revoked_certificates`` it is revoked. The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
- 
+**Note**: Certificate names must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
 ### Steps
 On the ``QualiChain Higher Education Module`` directory:
 
@@ -49,6 +49,11 @@ On ``QualiChain Recruiting`` directory run:
 1. npm install
 2. npm run start
 
+### Troubleshooting
+In case of errors at the npm install phase, make sure you have both build-essential and libkrb5-dev utilities installed: 
+* sudo apt-get install build-essential
+* sudo apt-get install libkrb5-dev
+
 
 ## QualiChain Consortium
 Allows universities to vote on new members of the consortium and to change the quorum required to make such decisions.
@@ -60,7 +65,7 @@ On ``QualiChain Recruiting`` directory run:
 2. npm run start
 		
 					
-### Fenix
+## Fenix
 https://github.com/FenixEdu/fenixedu-academic - baseline 
 
 https://github.com/ist-dsi/fenixedu-ist - customized modules
