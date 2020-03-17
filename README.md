@@ -15,7 +15,7 @@ Software tested on:
 
 ## QualiChain Higher Education Module
 
-This is the module executed by the HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed.The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
+This is the module executed by a HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed.The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
 **Note**: Certificate names must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
 ### Steps
 On the ``QualiChain Higher Education Module`` directory:
@@ -39,7 +39,7 @@ run ``node createAccount_script.js``
 
 ## QualiChain Recruiting
 
-This component is responsible for the diploma validation. It receives a PDF file representing a diploma as an input. 
+This is the module executed by a recruiting organization, e.g., a public administration organization or a company. This component is responsible for the diploma validation. It receives a PDF file representing a diploma as an input. 
 Such PDF is titled with the Issuer ID + Civil ID, which constitutes the ID of the diploma. The hash of the diploma is calculated. Then, the corresponding hash of the diploma registered at the (Ropsten) Ethereum network is obtained, through the provided ID.
 
 In case the calculated digest of the diploma matches the digest of the provided PDF, the diploma is valid. Otherwise, it is invalid.
