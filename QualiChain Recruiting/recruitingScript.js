@@ -3,9 +3,9 @@ const crypto = require('crypto');
 const Web3 = require('web3');
 const web3 = new Web3('https://ropsten.infura.io/v3/66a470c1158f441cac9c502cd63d4b9b');
 
-const managementAddress = '0x411bC3D2C4179e05ff0Fd864F25449f66eb48F11';
-const managementABI = [{"constant":true,"inputs":[{"name":"id","type":"address"}],"name":"getContract","outputs":[{"name":"add","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"address"}],"name":"cancelContract","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"address"},{"name":"add","type":"address"}],"name":"registerContract","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
-const managementContract = new web3.eth.Contract(managementABI,managementAddress);
+const consortiumAddress = '0x411bC3D2C4179e05ff0Fd864F25449f66eb48F11';
+const consortiumABI = [{"constant":true,"inputs":[{"name":"id","type":"address"}],"name":"getContract","outputs":[{"name":"add","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"address"}],"name":"cancelContract","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"address"},{"name":"add","type":"address"}],"name":"registerContract","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
+const consortiumContract = new web3.eth.Contract(consortiumABI,consortiumAddress);
 
 const issuerContractABI = [{"constant":false,"inputs":[{"name":"id","type":"uint256"}],"name":"revokeCertificate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"id","type":"uint256"}],"name":"verifyCertificate","outputs":[{"name":"hash","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"uint256"},{"name":"hash","type":"bytes32"}],"name":"registerCertificate","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
 
@@ -29,9 +29,9 @@ function verifyCertificate() {
 
 			document.getElementById("resultText").style.color = "black";
 
-			managementContract.methods.getContract(issuerId).call((managementErr,issuerContractAddress) => {
+			consortiumContract.methods.getContract(issuerId).call((consortiumErr,issuerContractAddress) => {
 
-				if(managementErr == null && issuerContractAddress != '0x0') {
+				if(consortiumErr == null && issuerContractAddress != '0x0') {
 					const issuerContract = new web3.eth.Contract(issuerContractABI,issuerContractAddress);
 
 					issuerContract.methods.verifyCertificate(id).call((err,certificateHash) => {
