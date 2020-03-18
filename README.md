@@ -64,7 +64,9 @@ In case of errors at the npm install phase, make sure you have both build-essent
 * sudo apt-get install libkrb5-dev
 
 ### Testing
-1. xxxxxx
+1. After following the instructions on the `` QualiChain Higher Education Module``, give as IssuerID ``did:ethr:`` + the address of the contract that uplodaded the certificate (``0x2CefB619218825C0c670D8E77f7039e0693E1dDC`` by default).
+2. The CivilID should be the same as the name of the pdf (``12345678``).
+3. Click on verify
 
 
 ## QualiChain Consortium
