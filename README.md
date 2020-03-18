@@ -26,11 +26,10 @@ On the ``QualiChain Higher Education Module`` directory:
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
 2. To create an account for a new HEI follow these steps: 
-run ``node createAccount_script.js``
+run ``node createAccount_script.js > accounts-NEW.txt``
 
-* From the output copy the Private Key to line 6 of file ``deployContract_script.js``, without the initial `0x`.
-* Store the Address of the account in a file.
-* Your account has to ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
+* From ``accounts-NEW.txt`` copy the Account number and the Private Key respectively to lines 5 and 6 of file ``deployContract_script.js``, without the initial `0x`.
+* Your account has no ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
  
