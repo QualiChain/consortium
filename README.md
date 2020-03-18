@@ -25,14 +25,14 @@ On the ``QualiChain Higher Education Module`` directory:
 
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
-2. To create an account belonging to a higher education institution, follow the next steps: 
+2. To create an account for a new HEI follow these steps: 
 run ``node createAccount_script.js``
 
 * From the output copy the Private Key to line 6 of file ``deployContract_script.js``, without the initial `0x`.
 * Store the Address of the account in a file.
 * Your account has to ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
-3. To deploy the school contract smart contract, with the created credentails, run ``node deployContract_script.js``
+3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
  
 4. Run ``npm run start``
 
