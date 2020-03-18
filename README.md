@@ -10,7 +10,7 @@ This proof of concept contains two mock accounts for the Ethereum blockchain, wh
 * Nodejs version >= 10.0.0 and npm version >= 6.0.0 (tested with 10.16.1 and 10.19)
 
 Software tested on:
-* Ubuntu 18.04 bionic, 3 GB RAM, running as a virtual machine (VirtualBox)
+* Ubuntu 18.04 bionic, 3 GB RAM, running as a virtual machine (VirtualBox), with nodejs v10.19.0
 * Ubuntu 18.04 bionic, 8 GB RAM
 
 ## QualiChain Higher Education Module
