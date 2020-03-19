@@ -134,16 +134,12 @@ async function registerIPFS(completePath, fileBytes) {
 
   try
   {
-    console.log('Adding certificate to IPFS')
     const filesAdded = await IPFSNode.add({
-      path: completePath,
+      path: path,
       content: fileBytes
     })
 
-    for await (const result of IPFSNode.add(fileBytes)) {
-      console.log("IPFS file path: " + result.path)
-      console.log("IPFS file multihash: " + JSON.stringify(result.cid.multihash))
-    }
+    console.log('Added file:', filesAdded[0].path, ' Multihash:', filesAdded[0].hash);
   }
   catch (error)
   {
