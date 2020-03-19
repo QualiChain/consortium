@@ -50,7 +50,7 @@ contract Consortium {
     }
 
     modifier isAssociate() {
-        require(contracts[msg.sender] != address(0));
+        require(contracts[msg.sender] != address(0) && counterHEI > 2);
         _;
     }
 
