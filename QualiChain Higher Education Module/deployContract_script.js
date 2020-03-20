@@ -22,9 +22,11 @@ web3.eth.getTransactionCount(account, (err,txCount) => {
   const txData = '0x' + serializedTx.toString('hex');
 
   web3.eth.sendSignedTransaction(txData, (err,txHash) => {
-      console.log(txData)
-  if (err) {
-      console.log(err + ' Transaction hash: ', txHash);
+    if (err) {
+      console.log(err);
+    }
+    else {
+      console.log('Transaction hash: ', txHash);
     }
   })
 })
