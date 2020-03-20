@@ -16,7 +16,7 @@ Software tested on:
 ## QualiChain Higher Education Module
 
 This is the module executed by a HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed.The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
-**Note**: Certificate names must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
+**Note**: Each certificate name represents a graduate's civil ID number. Therefore, every name must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
 
 ### Installing and running
 On the ``QualiChain Higher Education Module`` directory:
@@ -69,15 +69,48 @@ In case of errors at the npm install phase, make sure you have both build-essent
 
 
 ## QualiChain Consortium
-Allows universities to vote on new members of the consortium and to change the quorum required to make such decisions.
 
-### Steps
+This module provides an interface that allows universities to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium.
 
-On ``QualiChain Recruiting`` directory run:
-1. npm install
-2. npm run start
-		
-					
+### Installing and running (Simplified)
+Since the setup process for this module is quite extensive, most of it is already completed. Therefore, 3 new University Ethereum accounts were already created. One HEI contract for each University was also deployed.
+
+All the information on the created accounts is available in the ``accounts.txt`` file.
+
+On ``QualiChain Consortium`` directory run:
+1. ``npm install``
+2. Open the ``accounts.txt`` file and choose one of the 3 University accounts.
+3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
+4. ``npm start``
+
+### Testing (Register HEI)
+1. Register a new University in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a University, and the "contract address" field correspond to the respective HEI contract. 
+2. To test this functionality read the "QualiChain Higher Education Module" testing documentation, since there is the need to create a new account and deploy a new HEI contract.
+3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new University's account}" and the HEI contract address in the respective field. Press submit.
+4. Close the Consortium Application.
+5. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+6. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+7. ``npm start``
+8. Notice how now you can vote on the registration of a new University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+
+### Testing (Cancel HEI)
+1. Remove a University of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the University accounts to remove from the consortium. 
+2. Insert in the "HEI identifier" field the DID of that University, by typing "did:ethr:{address of the University's account}". Press submit.
+3. Close the Consortium Application.
+4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+6. ``npm start``
+7. Notice how now you can vote on the removal of a University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+
+### Testing (Change Threshold)
+1. Change the minimum number of votes necessary to make a decision in the consortium. Insert an integer in the "new value" field.
+2. Press submit.
+3. Close the Consortium Application.
+4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+6. ``npm start``
+7. Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+
 ## Fenix
 https://github.com/FenixEdu/fenixedu-academic - baseline 
 
