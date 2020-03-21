@@ -21,7 +21,7 @@ This is the module executed by a HEI. This module adds a certificate to the bloc
 ### Installing and running
 On the ``QualiChain Higher Education Module`` directory:
 
-1. run ``npm install`` then ``mkdir Certificates``and ``mkdir Certificates/registered_certificates``
+1. run ``rm -r -f ~.jsipfs/repo.lock`` then ``npm install``, ``mkdir Certificates``and ``mkdir Certificates/registered_certificates``
 
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
@@ -33,7 +33,7 @@ run ``node createAccount_script.js > accounts-NEW.txt``
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
  
-4. Run ``npm run start``
+4. Run ``npm start``
 
 **Note**: In case of ``Error: Returned error: replacement transaction underpriced``, wait for the pending transactions to be confirmed, and try again.
 
@@ -55,7 +55,7 @@ In case the calculated digest of the diploma matches the digest of the provided 
 
 On ``QualiChain Recruiting`` directory run:
 1. npm install
-2. npm run start
+2. npm start
 
 ### Troubleshooting
 In case of errors at the npm install phase, make sure you have both build-essential and libkrb5-dev utilities installed: 
