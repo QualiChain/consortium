@@ -245,6 +245,20 @@ function thresholdVote(node, positive) {
 	});
 }
 
+function getHEI() {
+	const id = document.getElementById("HEIInput1").value.split(":")[2];
+
+	consortiumContract.methods.getHEI(id).call((consortiumErr,addressHEI) => {
+		if(consortiumErr != null) {
+			console.log(consortiumErr);
+		}
+		else {
+			document.getElementById("resultHEI").textContent = "Contract address => " + addressHEI;
+			document.getElementById("resultHEI").style = "block";
+		}
+	})
+}
+
 
 
 
