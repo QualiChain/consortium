@@ -134,12 +134,11 @@ async function registerIPFS(completePath, fileBytes) {
 
   try
   {
-    const filesAdded = await IPFSNode.add({
-      path: path,
-      content: fileBytes
-    })
 
-    console.log('Added file:', filesAdded[0].path, ' Multihash:', filesAdded[0].hash);
+    for await (const result of IPFSNode.add(fileBytes)) {
+      console.log('Added file: ', path, ' Multihash: ', result["path"]);
+    }
+
   }
   catch (error)
   {
