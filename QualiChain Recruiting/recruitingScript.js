@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const Web3 = require('web3');
 const web3 = new Web3('https://ropsten.infura.io/v3/66a470c1158f441cac9c502cd63d4b9b');
 
-const consortiumAddress = '0x411bC3D2C4179e05ff0Fd864F25449f66eb48F11';
+const consortiumAddress = '0xA6B9A8bD75a586e5d713C23682cF0fb252aD0Cff';
 const consortiumABI = [{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"constant":false,"inputs":[{"internalType":"address","name":"id","type":"address"},{"internalType":"uint256","name":"vote","type":"uint256"}],"name":"cancelHEI","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"uint256","name":"value","type":"uint256"},{"internalType":"uint256","name":"vote","type":"uint256"}],"name":"changeThreshold","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"id","type":"address"}],"name":"getHEI","outputs":[{"internalType":"address","name":"add","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getPollingInfo","outputs":[{"internalType":"address[]","name":"","type":"address[]"},{"internalType":"address[]","name":"","type":"address[]"},{"internalType":"address[]","name":"","type":"address[]"},{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"id","type":"address"},{"internalType":"address","name":"contractAddress","type":"address"}],"name":"registerFounderHEI","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"id","type":"address"},{"internalType":"address","name":"contractAddress","type":"address"},{"internalType":"uint256","name":"vote","type":"uint256"}],"name":"registerHEI","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}];
 const consortiumContract = new web3.eth.Contract(consortiumABI,consortiumAddress);
 
@@ -29,7 +29,8 @@ function verifyCertificate() {
 
 			document.getElementById("resultText").style.color = "black";
 
-			consortiumContract.methods.getContract(issuerId).call((consortiumErr,issuerContractAddress) => {
+			consortiumContract.methods.getHEI(issuerId).call((consortiumErr,issuerContractAddress) => {
+				console.log(issuerContractAddress);
 
 				if(consortiumErr == null && issuerContractAddress != '0x0') {
 					const issuerContract = new web3.eth.Contract(issuerContractABI,issuerContractAddress);
