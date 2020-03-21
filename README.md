@@ -28,7 +28,7 @@ Steps 2 and 3 are optional, as an account is already created and a smart contrac
 2. To create an account for a new HEI follow these steps: 
 run ``node createAccount_script.js > accounts-NEW.txt``
 
-* From ``accounts-NEW.txt`` copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
+* From ``accounts-NEW.txt`` copy the account Address and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
 * Your account has no ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
