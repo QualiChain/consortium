@@ -44,12 +44,17 @@ run ``node createAccount_script.js > accounts-NEW.txt``
 
 3. The final test is to run the QualiChain Recruiting module, next:
 
+
 ## QualiChain Recruiting
 
 This is the module executed by a recruiting organization, e.g., a public administration organization or a company. This component is responsible for the diploma validation. It receives a PDF file representing a diploma as an input. 
 Such PDF is titled with the Issuer ID + Civil ID, which constitutes the ID of the diploma. The hash of the diploma is calculated. Then, the corresponding hash of the diploma registered at the (Ropsten) Ethereum network is obtained, through the provided ID.
 
 In case the calculated digest of the diploma matches the digest of the provided PDF, the diploma is valid. Otherwise, it is invalid.
+
+The Issuer ID identifies the HEI that issued the diploma. You don't have to provide the address of the HEI's contract because the QualiChain Recruiting module gets it from the QualiChain Consortium smart contract, explained below.
+
+NB: if you created a new HEI with the QualiChain Higher Education Module, you first must add it to the consortium before being able to run the QualiChain Recruiting. For that, you must first run the QualiChain Consortium module to register the new HEI (below).
 
 ### Installing and running
 
