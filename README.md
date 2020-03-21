@@ -28,7 +28,7 @@ Steps 2 and 3 are optional, as an account is already created and a smart contrac
 2. To create an account for a new HEI follow these steps: 
 run ``node createAccount_script.js > accounts-NEW.txt``
 
-* From ``accounts-NEW.txt`` copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
+* From ``accounts-NEW.txt`` copy the account Address and the Private Key (the key without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
 * Your account has no ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
@@ -70,43 +70,47 @@ In case of errors at the npm install phase, make sure you have both build-essent
 
 ## QualiChain Consortium
 
-This module provides an interface that allows universities to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium.
+We support a smart contract form managing the QualiChain Consortium. This contract keeps a set of members. For others to join they have to be supported by the current members. 
 
-### Installing and running (Simplified)
-Since the setup process for this module is quite extensive, most of it is already completed. Therefore, 3 new University Ethereum accounts were already created. One HEI contract for each University was also deployed.
+This module provides an interface that allows HEIs to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium. All these operations are done using the Consortium Application.
 
-All the information on the created accounts is available in the ``accounts.txt`` file.
+### Installing and running
+The setup process for this module is somewhat long, so most of it is already completed. Specifically, 3 HEI accounts were already created one HEI contract for each HEI was also deployed. All the information on the created accounts is available in the ``accounts.txt`` file.
 
-On ``QualiChain Consortium`` directory run:
+In the ``QualiChain Consortium`` directory execute the Consortium Application by running:
 1. ``npm install``
-2. Open the ``accounts.txt`` file and choose one of the 3 University accounts.
+2. Open the ``accounts.txt`` file and choose one of the 3 HEI accounts.
 3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
 4. ``npm start``
 
 ### Testing (Register HEI)
-1. Register a new University in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a University, and the "contract address" field correspond to the respective HEI contract. 
-2. To test this functionality read the "QualiChain Higher Education Module" testing documentation, since there is the need to create a new account and deploy a new HEI contract.
-3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new University's account}" and the HEI contract address in the respective field. Press submit.
-4. Close the Consortium Application.
-5. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
-6. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
-7. ``npm start``
-8. Notice how now you can vote on the registration of a new University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
+
+2. In the Consortium Application, Register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+* Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
+* Press submit.
+* Close the Consortium Application.
+
+3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter.
+* Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+* Run ``npm start``
+* Now you can vote on the registration of a new HEI by clicking on it. 
+* Since the threshold value is 2 by default, a positive vote will make this poll successful. If you open the application again you will see the admission of the HEI is no longer pending.
 
 ### Testing (Cancel HEI)
-1. Remove a University of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the University accounts to remove from the consortium. 
-2. Insert in the "HEI identifier" field the DID of that University, by typing "did:ethr:{address of the University's account}". Press submit.
+1. Remove a HEI of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the HEI accounts to remove from the consortium. 
+2. Insert in the "HEI identifier" field the DID of that HEI, by typing "did:ethr:{address of the HEI's account}". Press submit.
 3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
 5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 6. ``npm start``
-7. Notice how now you can vote on the removal of a University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+7. Notice how now you can vote on the removal of a HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
 
 ### Testing (Change Threshold)
 1. Change the minimum number of votes necessary to make a decision in the consortium. Insert an integer in the "new value" field.
 2. Press submit.
 3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
 5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 6. ``npm start``
 7. Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
