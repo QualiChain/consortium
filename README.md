@@ -77,11 +77,11 @@ This module provides an interface that allows HEIs to vote on new members of the
 ### Installing and running
 The setup process for this module is somewhat long, so most of it is already completed. Specifically, 3 HEI accounts were already created one HEI contract for each HEI was also deployed. All the information on the created accounts is available in the ``accounts.txt`` file.
 
-In the ``QualiChain Consortium`` directory execute the Consortium Application by running:
-1. ``npm install``
+In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
+1. Run ``npm install``
 2. Open the ``accounts.txt`` file and choose one of the 3 HEI accounts.
 3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
-4. ``npm start``
+4. Run ``npm start``
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
@@ -94,7 +94,7 @@ In the ``QualiChain Consortium`` directory execute the Consortium Application by
 3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter.
 * Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start``
-* Now you can vote on the registration of a new HEI by clicking on it. 
+* The new HEI appears in the "Pending HEI registrations" form. Now you can vote on the registration of a new HEI by clicking on it. 
 * Since the threshold value is 2 by default, a positive vote will make this poll successful. If you open the application again you will see the admission of the HEI is no longer pending.
 
 ### Testing (Cancel HEI)
