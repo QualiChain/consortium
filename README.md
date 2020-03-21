@@ -91,11 +91,11 @@ In the ``QualiChain Consortium`` directory execute the Consortium Application by
 * Press submit.
 * Close the Consortium Application.
 
-3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` and choose another HEI account to get a different voter.
+3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter.
 * Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start``
-
-4. Notice how now you can vote on the registration of a new HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+* Now you can vote on the registration of a new HEI by clicking on it. 
+* Since the threshold value is 2 by default, a positive vote will make this poll successful. If you open the application again you will see the admission of the HEI is no longer pending.
 
 ### Testing (Cancel HEI)
 1. Remove a HEI of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the HEI accounts to remove from the consortium. 
