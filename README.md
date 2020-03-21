@@ -73,7 +73,7 @@ In case of errors at the npm install phase, make sure you have both build-essent
 This module provides an interface that allows universities to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium.
 
 ### Installing and running (Simplified)
-Since the setup process for this module is quite extensive, most of it is already completed. Therefore, 3 new University Ethereum accounts were already created. One HEI contract for each University was also deployed.
+Since the setup process for this module is quite extensive, most of it is already completed. Therefore, 3 HEI accounts were already created. One HEI contract for each HEI was also deployed.
 
 All the information on the created accounts is available in the ``accounts.txt`` file.
 
@@ -84,8 +84,8 @@ On ``QualiChain Consortium`` directory run:
 4. ``npm start``
 
 ### Testing (Register HEI)
-1. Register a new University in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a University, and the "contract address" field correspond to the respective HEI contract. 
-2. To test this functionality read the "QualiChain Higher Education Module" testing documentation, since there is the need to create a new account and deploy a new HEI contract.
+1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
+2. Register a new HEI in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a University, and the "contract address" field correspond to the respective HEI contract. 
 3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new University's account}" and the HEI contract address in the respective field. Press submit.
 4. Close the Consortium Application.
 5. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
