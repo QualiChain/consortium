@@ -85,7 +85,7 @@ On ``QualiChain Consortium`` directory run:
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
-2. Register a new HEI in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a HEI, and the "contract address" field correspond to the respective HEI contract. 
+2. Register a new HEI in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a HEI (``did:ethr:`` + HEI account address), and the "contract address" field correspond to the respective HEI contract address. 
 3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. Press submit.
 4. Close the Consortium Application.
 5. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
