@@ -79,34 +79,34 @@ All the information on the created accounts is available in the ``accounts.txt``
 
 On ``QualiChain Consortium`` directory run:
 1. ``npm install``
-2. Open the ``accounts.txt`` file and choose one of the 3 University accounts.
+2. Open the ``accounts.txt`` file and choose one of the 3 HEI accounts.
 3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
 4. ``npm start``
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
-2. Register a new HEI in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a University, and the "contract address" field correspond to the respective HEI contract. 
-3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new University's account}" and the HEI contract address in the respective field. Press submit.
+2. Register a new HEI in the "Register HEI" form. The "HEI identifier" field corresponds to the DID of a HEI, and the "contract address" field correspond to the respective HEI contract. 
+3. After completing the step above, insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. Press submit.
 4. Close the Consortium Application.
-5. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+5. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
 6. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 7. ``npm start``
-8. Notice how now you can vote on the registration of a new University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+8. Notice how now you can vote on the registration of a new HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
 
 ### Testing (Cancel HEI)
-1. Remove a University of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the University accounts to remove from the consortium. 
-2. Insert in the "HEI identifier" field the DID of that University, by typing "did:ethr:{address of the University's account}". Press submit.
+1. Remove a HEI of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the HEI accounts to remove from the consortium. 
+2. Insert in the "HEI identifier" field the DID of that HEI, by typing "did:ethr:{address of the HEI's account}". Press submit.
 3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
 5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 6. ``npm start``
-7. Notice how now you can vote on the removal of a University. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+7. Notice how now you can vote on the removal of a HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
 
 ### Testing (Change Threshold)
 1. Change the minimum number of votes necessary to make a decision in the consortium. Insert an integer in the "new value" field.
 2. Press submit.
 3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another University account to get a different perspective on the voting system.
+4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
 5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 6. ``npm start``
 7. Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
