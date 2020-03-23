@@ -1,8 +1,11 @@
 # Qualichain Portuguese PoC
 The Qualichain Portuguese PoC is about the interaction between a higher education organization, IST (or Técnico Lisboa), and a recruiting organization, AMA.
-This prototype contains several modules, and mock data, at the ``Certificate Examples`` folder.
-Transactions on the Ethereum Ropsten network can be verified here: https://ropsten.etherscan.io/
-This proof of concept contains a set of mock accounts for the Ropsten blockchain, which can be used to perform the demo. It can be trivially adapted to run in the Ethereum or QualiChain blockchains.
+
+This software allows a consortium of HEIs to put a cryptographic hash of their certificates in the blockchain, for recruiting organizations to check the authenticity and integrity of these certificates, and to manage the membership of the consortium (adding HEIs, removing HEIs, define how decisions are taken). 
+The certificates considered are opaque pdf files, not structured data. 
+
+This prototype contains 3 modules, and mock certificates in the ``Certificate Examples`` folder.
+It also contains a set of mock accounts for the Ropsten blockchain, which can be used to perform the demo. It can be trivially adapted to run in the Ethereum or QualiChain blockchains.
 
 **Note**: Some operations may fail when using the same blockchain (Ethereum, Ropsten,...) account, e.g., deploying a smart contract with an account that has already been used to deploy the same smart contract.
 
@@ -79,7 +82,7 @@ In case of errors at the npm install phase, make sure you have both build-essent
 
 ## QualiChain Consortium
 
-The third module is an applications (consortium app) and a smart contract for managing the QualiChain Consortium, i.e., a set of HEIs using the QualiChain platform to provide assurances about the certificates they issue. The smart contract keeps a set of members (HEIs) of the consortium. For new HEIs to join the consortium they have to be supported by the current members. 
+The third module is an applications (consortium app) and a smart contract for governance of the QualiChain Consortium. A consortium is a set of HEIs using the QualiChain platform to provide assurances about the certificates they issue. The smart contract keeps a set of members (HEIs) of the consortium. Decisions are taken by voting. There are 3 types of operations that are voted: adding a new HEI to the consortium, removing a HEI from the consortium, and changing the number of votes necessary for a decision to become effective (the default is 2).
 
 The application provides an interface that allows HEIs to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium. 
 
