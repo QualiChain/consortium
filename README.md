@@ -26,9 +26,9 @@ On the ``QualiChain Higher Education Module`` directory:
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
 2. To create an account for a new HEI follow these steps: 
-run ``node createAccount_script.js > accounts-NEW.txt``
+run ``node createAccount_script.js > account-NEW.txt``
 
-* From ``accounts-NEW.txt`` copy the account Address and the Private Key (the key without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
+* From ``account-NEW.txt`` copy the account Address and the Private Key (the key without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
 * Your account has no ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
@@ -44,12 +44,17 @@ run ``node createAccount_script.js > accounts-NEW.txt``
 
 3. The final test is to run the QualiChain Recruiting module, next:
 
+
 ## QualiChain Recruiting
 
 This is the module executed by a recruiting organization, e.g., a public administration organization or a company. This component is responsible for the diploma validation. It receives a PDF file representing a diploma as an input. 
 Such PDF is titled with the Issuer ID + Civil ID, which constitutes the ID of the diploma. The hash of the diploma is calculated. Then, the corresponding hash of the diploma registered at the (Ropsten) Ethereum network is obtained, through the provided ID.
 
 In case the calculated digest of the diploma matches the digest of the provided PDF, the diploma is valid. Otherwise, it is invalid.
+
+The Issuer ID identifies the HEI that issued the diploma. You don't have to provide the address of the HEI's contract because the QualiChain Recruiting module gets it from the QualiChain Consortium smart contract, explained below.
+
+NB: if you created a new HEI with the QualiChain Higher Education Module, you first must add it to the consortium before being able to run the QualiChain Recruiting. For that, you must first run the QualiChain Consortium module to register the new HEI (below).
 
 ### Installing and running
 
@@ -77,16 +82,16 @@ This module provides an interface that allows HEIs to vote on new members of the
 ### Installing and running
 The setup process for this module is somewhat long, so most of it is already completed. Specifically, 3 HEI accounts were already created one HEI contract for each HEI was also deployed. All the information on the created accounts is available in the ``accounts.txt`` file.
 
-In the ``QualiChain Consortium`` directory execute the Consortium Application by running:
-1. ``npm install``
-2. Open the ``accounts.txt`` file and choose one of the 3 HEI accounts.
-3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
-4. ``npm start``
+In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
+1. Run ``npm install``
+2. Optional: Pick the data of a HEI that is part of the consortium already (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
+3. Run ``npm start``
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
 
-2. In the Consortium Application, Register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+2. In the Consortium Application, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+* Run ``npm start``
 * Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
 * Press submit.
 * Close the Consortium Application.
@@ -94,7 +99,7 @@ In the ``QualiChain Consortium`` directory execute the Consortium Application by
 3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter.
 * Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start``
-* Now you can vote on the registration of a new HEI by clicking on it. 
+* The new HEI appears in the "Pending HEI registrations" form. Now you can vote on the registration of a new HEI by clicking on it. 
 * Since the threshold value is 2 by default, a positive vote will make this poll successful. If you open the application again you will see the admission of the HEI is no longer pending.
 
 ### Testing (Cancel HEI)
