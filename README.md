@@ -90,7 +90,8 @@ In the ``QualiChain Consortium`` directory execute the Consortium Application an
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
 
-2. In the Consortium Application, Register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+2. In the Consortium Application, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+* Run ``npm start``
 * Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
 * Press submit.
 * Close the Consortium Application.
