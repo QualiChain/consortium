@@ -84,9 +84,8 @@ The setup process for this module is somewhat long, so most of it is already com
 
 In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
 1. Run ``npm install``
-2. Open the ``accounts.txt`` file and choose one of the 3 HEI accounts.
-3. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
-4. Run ``npm start``
+2. Pick the data for the new HEI. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
+3. Run ``npm start``
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
