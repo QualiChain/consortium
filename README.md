@@ -1,10 +1,10 @@
 # Qualichain Portuguese PoC
-The Qualichain Portuguese PoC tackles an interaction between a higher education organization, IST (or Técnico Lisboa) and AMA.
+The Qualichain Portuguese PoC is about the interaction between a higher education organization, IST (or Técnico Lisboa), and a recruiting organization, AMA.
 This prototype contains several modules, and mock data, at the ``Certificate Examples`` folder.
 Transactions on the Ethereum Ropsten network can be verified here: https://ropsten.etherscan.io/
-This proof of concept contains two mock accounts for the Ethereum blockchain, which can be used to perform the demo. 
+This proof of concept contains a set of mock accounts for the Ropsten blockchain, which can be used to perform the demo. It can be trivially adapted to run in the Ethereum or QualiChain blockchains.
 
-**Note**: Some operations may fail when using the same blockcgain (Ethereum, Ropsten,...) account, e.g., deploying a smart contract with an account that has already been used to deploy the same smart contract.
+**Note**: Some operations may fail when using the same blockchain (Ethereum, Ropsten,...) account, e.g., deploying a smart contract with an account that has already been used to deploy the same smart contract.
 
 ## Requirements
 * Nodejs version >= 10.0.0 and npm version >= 6.0.0 (tested with 10.16.1 and 10.19)
@@ -15,19 +15,23 @@ Software tested on:
 
 ## QualiChain Higher Education Module
 
-This is the module executed by a HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed.The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
+This is the module executed by a HEI. This module adds a certificate to the blockchain when it is pasted at the ``registered_certificates`` folder. A possibility is for the academic management systems (e.g., https://fenixedu.org/) to provide certificates in PDF format that are stored in that folder. Instead, if a certificate is moved to the ``revoked_certificates`` it is revoked. This is a rare operation, but that may be needed (e.g., if a certificate is issued with a typo in the student data). The Ethereum accounts used in this module are stored on the ``accounts.txt`` file.
 **Note**: Each certificate name represents a graduate's civil ID number. Therefore, every name must be integer sequences, and end in ``.pdf``. Example: 123456789.pdf, 1.pdf
 
 ### Installing and running
 On the ``QualiChain Higher Education Module`` directory:
 
-1. run ``rm -r -f ~.jsipfs/repo.lock`` then ``npm install``, ``mkdir Certificates``and ``mkdir Certificates/registered_certificates``
+1. Run the following commands:
+* ``rm -r -f ~.jsipfs/repo.lock``
+* ``npm install``
+* ``mkdir Certificates``
+* ``mkdir Certificates/registered_certificates``
 
 Steps 2 and 3 are optional, as an account is already created and a smart contract deployed.
 
-2. To create an account for a new HEI follow these steps: 
-run ``node createAccount_script.js > account-NEW.txt``
+2. To create an account for a new HEI follow these steps:
 
+* Run ``node createAccount_script.js > account-NEW.txt``
 * From ``account-NEW.txt`` copy the account Address and the Private Key (the key without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
 * Your account has no ether, so if you are using Ropsten reclaim some for free at: https://faucet.ropsten.be/ or https://ipfs.io/ipfs/QmVAwVKys271P5EQyEfVSxm7BJDKWt42A2gHvNmxLjZMps/ (ether may take up to some minutes to arrive)
 
@@ -38,9 +42,9 @@ run ``node createAccount_script.js > account-NEW.txt``
 **Note**: In case of ``Error: Returned error: replacement transaction underpriced``, wait for the pending transactions to be confirmed, and try again.
 
 ### Testing
-1. Insert file 12345678.pdf in folder ``Certificates/registered_certificates`` by running ``cp ../Certificate\ Examples/12345678.pdf Certificates/registered_certificates``
+1. Insert file ``12345678.pdf`` in folder ``Certificates/registered_certificates`` by running ``cp ../Certificate\ Examples/12345678.pdf Certificates/registered_certificates``
 
-2. Access https://ropsten.etherscan.io/, insert the address of the account (e.g., the IST account in file ``accounts.txt``) and observe that a transaction was generated. 
+2. Access https://ropsten.etherscan.io/, insert the address of the account (e.g., the IST account in file ``accounts.txt``) and observe that a transaction was generated. You can also use this website to get the address of the smart contract that was deployed.
 
 3. The final test is to run the QualiChain Recruiting module, next:
 
