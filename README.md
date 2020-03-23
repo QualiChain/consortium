@@ -152,4 +152,4 @@ Main author: Diogo Serranito
 
 Contributors: Rafael Belchior, Miguel Correia
 
-Support: please contact Rafael Belchior
+Support: please contact Rafael Belchior, rafael.belchior at tecnico.ulisboa.pt 
