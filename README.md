@@ -150,4 +150,6 @@ https://github.com/ist-dsi-archive/fenix-ist - mock data
 
 Main author: Diogo Serranito
 
-Contributoes: Rafael Belchior, Miguel Correia
+Contributors: Rafael Belchior, Miguel Correia
+
+Support: please contact Rafael Belchior
