@@ -79,52 +79,60 @@ In case of errors at the npm install phase, make sure you have both build-essent
 
 ## QualiChain Consortium
 
-The third module is an applications and a smart contract for managing the QualiChain Consortium, i.e., a set of HEIs using the QualiChain platform to provide assurances about the certificates they issue. The smart contract keeps a set of members (HEIs) of the consortium. For new HEIs to join the consortium they have to be supported by the current members. 
+The third module is an applications (consortium app) and a smart contract for managing the QualiChain Consortium, i.e., a set of HEIs using the QualiChain platform to provide assurances about the certificates they issue. The smart contract keeps a set of members (HEIs) of the consortium. For new HEIs to join the consortium they have to be supported by the current members. 
 
 The application provides an interface that allows HEIs to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium. 
 
 ### Installing and running
 The setup process for running this module is somewhat long as we need to build a consortium, so some of the necessary steps have already been completed. Specifically, 3 HEI accounts have already been created and one HEI contract for each HEI has also been deployed. All the information on the created accounts is available in the ``accounts.txt`` file (see the entries for HEI 1, HEI 2 and HEI 3).
 
-In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
+In the ``QualiChain Consortium`` directory execute the consortium app by doing the following:
 1. Run ``npm install``
 2. Optional as already done with the data of HEI 1: Pick the data of a HEI that is already part of the consortium (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
-3. Run ``npm start``
+3. Run ``npm start`` that executes the consortium app.
 
 ### Testing (Register HEI)
-1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional steps).
+1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional steps). You need to access https://ropsten.etherscan.io/ to get the address of the contract.
 
-2. In the Consortium Application, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the consortium application ("Installing and Running" above, HEI 1 by default). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
-* Run ``npm start``
+2. In the consortium app, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the consortium app ("Installing and Running" above, HEI 1 by default). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+* Run ``npm start`` to execute the consortium app.
 * Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
 * Press submit.
-* Close the Consortium Application.
+* Close the consortium app.
 
-3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter.
-* Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
-* Run ``npm start``
+3. Now another HEI will vote in favor of the new HEI joining the consortium. Open the ``accounts.txt`` file and choose another HEI account to get a different voter (e.g., HEI 2).
+* Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+* Run ``npm start`` to execute the consortium app.
 * The new HEI appears in the "Pending HEI registrations" form. Now you can vote on the registration of a new HEI by clicking on it. 
 * Since the threshold value is 2 by default, a positive vote will make this poll successful. 
 
-4. The last form of the Consortium Application allows checking if a HEI is part of the consortium. Insert there the address of the new HEI in the format "did:ethr:{address of the new HEI's account}", hit Submit and check if that is true. Notice that the new HEI is registered in a smart contract in the blockchain, so if you are too fast this may not have happened yet.
+4. The last form of the consortium app, "HEI Contract Address" allows checking if a HEI is part of the consortium. Insert there the address of the new HEI in the format "did:ethr:{address of the new HEI's account}", press submit and check if that is true. Notice that the new HEI is registered in a smart contract in the blockchain, so it takes some time (depending on the blockchain being used). If you are too fast, the registration may not have finished yet.
 
-### Testing (Cancel HEI)
-1. Remove a HEI of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the HEI accounts to remove from the consortium. 
-2. Insert in the "HEI identifier" field the DID of that HEI, by typing "did:ethr:{address of the HEI's account}". Press submit.
-3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
-5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
-6. ``npm start``
-7. Notice how now you can vote on the removal of a HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+### Testing (Remove HEI)
+1. Remove a HEI from the consortium in the "Cancel HEI" form. Test this functionality by removing the new HEI you created from the consortium. 
+* Run ``npm start`` to execute the consortium app.
+* Insert in the "HEI identifier" field the DID of that HEI, by typing "did:ethr:{address of the HEI's account}". Press submit.
+* Close the consortium app.
+
+2. Now another HEI has to vote in favor of removing the new HEI from the consortium.
+* Open the ``accounts.txt`` and choose another HEI account to get a second vote in favour of removing the new HEI (e.g., HEI 2).
+* Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+* Run ``npm start`` to execute the consortium app.
+* Notice how now you can vote on the removal of a HEI. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+
+3. The last form of the consortium app, "HEI Contract Address" allows checking if a HEI is part of the consortium. Use it to check that the new HEI is no longer part of the consortium. As in the previous test, notice that removel requires accessing the blockchain so it takes some time.
 
 ### Testing (Change Threshold)
-1. Change the minimum number of votes necessary to make a decision in the consortium. Insert an integer in the "new value" field.
-2. Press submit.
-3. Close the Consortium Application.
-4. Open the ``accounts.txt`` and choose another HEI account to get a different perspective on the voting system.
-5. Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
-6. ``npm start``
-7. Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+1. Change the minimum number of votes necessary to make a decision in the consortium. 
+* Run ``npm start`` to execute the consortium app.
+* Insert an integer in the "new value" field. Press submit.
+* Close the consortium app.
+
+2. Now another HEI has to vote in favor of chainging the threshold.
+* Open the ``accounts.txt`` and choose another HEI account to get a second vote (e.g., HEI 2).
+* Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of file ``consortiumScript.js``.
+* Run ``npm start`` to execute the consortium app.
+* Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
 
 ## Fenix
 https://github.com/FenixEdu/fenixedu-academic - baseline 
