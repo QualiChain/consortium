@@ -60,6 +60,9 @@ consortiumContract.methods.getPollingInfo().call((consortiumErr,data) => {
 			document.getElementById("thresholdSection").appendChild(node);
 		}
 	}
+	else {
+		console.log(consortiumErr);
+	}
 })
 
 
@@ -252,8 +255,14 @@ function getHEI() {
 		if(consortiumErr != null) {
 			console.log(consortiumErr);
 		}
-		else {
+		else if(addressHEI != "0x0000000000000000000000000000000000000000"){
 			document.getElementById("resultHEI").textContent = "Contract address => " + addressHEI;
+			document.getElementById("resultHEI").style.color = "black";
+			document.getElementById("resultHEI").style = "block";
+		}
+		else {
+			document.getElementById("resultHEI").textContent = "No contract registered for that HEI address!";
+			document.getElementById("resultHEI").style.color = "red";
 			document.getElementById("resultHEI").style = "block";
 		}
 	})
