@@ -68,29 +68,29 @@ In case of errors at the npm install phase, make sure you have both build-essent
 * sudo apt-get install libkrb5-dev
 
 ### Testing
-1. After following the instructions on the `` QualiChain Higher Education Module``, give as IssuerID ``did:ethr:`` + the address of the contract that uplodaded the certificate (``0x2CefB619218825C0c670D8E77f7039e0693E1dDC`` by default).
+1. After following the instructions on the `` QualiChain Higher Education Module``, give as IssuerID ``did:ethr:`` + the address of the account used to upload the certificate ("did:ethr:0x2CefB619218825C0c670D8E77f7039e0693E1dDC" by default).
 2. The CivilID should be the same as the name of the pdf (``12345678``).
 3. Click on verify
 
 
 ## QualiChain Consortium
 
-We support a smart contract form managing the QualiChain Consortium. This contract keeps a set of members. For others to join they have to be supported by the current members. 
+We have an applications and a smart contract for managing the QualiChain Consortium. The contract keeps a set of members (HEIs) of the consortium. For new HEIs to join the consortium they have to be supported by the current members. 
 
-This module provides an interface that allows HEIs to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium. All these operations are done using the Consortium Application.
+The applications provides an interface that allows HEIs to vote on new members of the consortium and to change the quorum required to make such decisions. It also gives the possibiliy to vote on the removal of a current member of the consortium. All these operations are done using the Consortium Application.
 
 ### Installing and running
-The setup process for this module is somewhat long, so most of it is already completed. Specifically, 3 HEI accounts were already created one HEI contract for each HEI was also deployed. All the information on the created accounts is available in the ``accounts.txt`` file.
+The setup process for running this module is somewhat long, so some of the necessary steps have already been completed. Specifically, 3 HEI accounts were already created and one HEI contract for each HEI was also deployed. All the information on the created accounts is available in the ``accounts.txt`` file (see the entries for HEI 1, HEI 2 and HEI 3).
 
 In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
 1. Run ``npm install``
-2. Optional: Pick the data of a HEI that is part of the consortium already (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
+2. Optional as already done with the data of HEI 1: Pick the data of a HEI that is part of the consortium already (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
 3. Run ``npm start``
 
 ### Testing (Register HEI)
 1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional setps).
 
-2. In the Consortium Application, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+2. In the Consortium Application, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the Consortium Application ("Installing and Running" above, HEI 1 by default). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
 * Run ``npm start``
 * Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
 * Press submit.
@@ -100,7 +100,9 @@ In the ``QualiChain Consortium`` directory execute the Consortium Application an
 * Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start``
 * The new HEI appears in the "Pending HEI registrations" form. Now you can vote on the registration of a new HEI by clicking on it. 
-* Since the threshold value is 2 by default, a positive vote will make this poll successful. If you open the application again you will see the admission of the HEI is no longer pending.
+* Since the threshold value is 2 by default, a positive vote will make this poll successful. 
+
+4. The last form of the Consortium Application allows checking if a HEI is part of the consortium. Insert there the address of the new HEI in the format "did:ethr:{address of the new HEI's account}", hit Submit and check if that is true. Notice that the new HEI is registered in a smart contract in the blockchain, so if you are too fast this may not have happened yet.
 
 ### Testing (Cancel HEI)
 1. Remove a HEI of the Consortium in the "Cancel HEI" form. Test this functionality by opening the ``accounts.txt`` file and choosing one of the HEI accounts to remove from the consortium. 
