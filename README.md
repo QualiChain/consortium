@@ -1,4 +1,6 @@
-# Qualichain Portuguese PoC
+# Consortium and Certificate Management 
+aka Qualichain Portuguese PoC
+
 The Qualichain Portuguese PoC is about the interaction between a higher education organization, IST (or Técnico Lisboa), and a recruiting organization, AMA.
 
 This software allows a consortium of HEIs to put a cryptographic hash of their certificates in the blockchain, for recruiting organizations to check the authenticity and integrity of these certificates, and to manage the membership of the consortium (adding HEIs, removing HEIs, define how decisions are taken). 
@@ -144,3 +146,8 @@ https://github.com/ist-dsi/fenixedu-ist - customized modules
 
 https://github.com/ist-dsi-archive/fenix-ist - mock data
 
+## Contributors
+
+Main author: Diogo Serranito
+
+Contributoes: Rafael Belchior, Miguel Correia
