@@ -1,17 +1,17 @@
 //QUALICHAIN
-Account 2 {
+{
   address: '0xfCDf7D4df540764c8f7dC775892FfD6E9CB046C3',
   privateKey:'0x3fde1335504923630673da70f990f78caa40c79b4412a3e1cf8eb3f7055982dd'
 }
 
-//UNI 1
+//HEI 1
 Account 1{
   address: '0x2CefB619218825C0c670D8E77f7039e0693E1dDC',
   privateKey:'0x26020431000baecb5e0ae79cc2fca00a8c4ce6e299889dcaa3a12b469383f2b5'
   HEIcontract: '0xc2C6789CbdA002E2607296e6e22a827B1C11B0F5'
 }
 
-//UNI 2
+//HEI 2
 {
 	address: '0xe82F6583931E735D21cda07b28dDde1dE3D314FD',
   privateKey:
@@ -19,7 +19,7 @@ Account 1{
    HEIcontract: '0x3b8320E99183b8B0ad25834e8B0E6E25FB7fA5fD'
 }
 
-//UNI 3
+//HEI 3
 {
 	address: '0xdA5bC0BB52B6155900F239c99C2848b4Ecb55Bc4',
   privateKey:
