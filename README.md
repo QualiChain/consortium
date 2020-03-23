@@ -84,7 +84,7 @@ The setup process for this module is somewhat long, so most of it is already com
 
 In the ``QualiChain Consortium`` directory execute the Consortium Application and do the following:
 1. Run ``npm install``
-2. Pick the data of a HEI that is part of the consortium already (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
+2. Optional: Pick the data of a HEI that is part of the consortium already (in ``accounts.txt``). Copy the Account number and the Private Key (without the initial `0x`) respectively to lines 5 and 6 of the file ``consortiumScript.js``.
 3. Run ``npm start``
 
 ### Testing (Register HEI)
