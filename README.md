@@ -45,6 +45,9 @@ Steps 2 and 3 are optional, as an account is already created and a smart contrac
  
 4. Run ``npm start``
 
+The result of the execution should be similar to the following:
+[![qhei.png](https://i.postimg.cc/sgcDqqYN/qhei.png)](https://postimg.cc/9DDhqxNd)
+
 **Note**: In case of ``Error: Returned error: replacement transaction underpriced``, wait for the pending transactions to be confirmed, and try again.
 
 ### Testing
@@ -79,8 +82,10 @@ In case of errors at the npm install phase, make sure you have both build-essent
 
 ### Testing
 1. After following the instructions on the QualiChain Higher Education Module, give as IssuerID ``did:ethr:`` + the address of the account used to upload the certificate ("did:ethr:0x2CefB619218825C0c670D8E77f7039e0693E1dDC" by default).
-2. The Civil ID should be the same as the name of the pdf file (e.g., ``12345678``).
-3. Click on verify
+2. The Civil ID should be the same as the name of the pdf file (e.g., ``12345678``), as exemplified:
+[![qr.png](https://i.postimg.cc/V6HJTp88/qr.png)](https://postimg.cc/S2CQYZRT)
+3. Click on verify. The result should be similar to the following figure.
+[![qr2.png](https://i.postimg.cc/QCx2zN36/qr2.png)](https://postimg.cc/sQqHQr1S)
 
 
 ## QualiChain Consortium
