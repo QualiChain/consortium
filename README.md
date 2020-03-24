@@ -40,6 +40,7 @@ Steps 2 and 3 are optional, as an account is already created and a smart contrac
 * Run ``node createAccount_script.js > account-NEW.txt``
 * From ``account-NEW.txt`` copy the account Address and the Private Key (the key without the initial `0x`) respectively to lines 5 and 6 of file ``deployContract_script.js``.
 * You need to pay to run smart contracts and your account has no Ether. If you are using Ropsten, reclaim some for free at: https://faucet.ropsten.be/, by inserting your account address. Not that the Ropsten Ether may take up to some minutes to arrive.
+[![Captura-de-ecr-de-2020-03-24-15-08-00.png](https://i.postimg.cc/wjJ68QVB/Captura-de-ecr-de-2020-03-24-15-08-00.png)](https://postimg.cc/87p8LWx8)
 
 3. To deploy the HEI smart contract, with the created credentials, run ``node deployContract_script.js``
  
@@ -103,9 +104,11 @@ In the ``QualiChain Consortium`` directory execute the consortium app by doing t
 3. Run ``npm start`` that executes the consortium app.
 
 ### Testing (Register HEI)
-1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional steps). You need to access https://ropsten.etherscan.io/ to get the address of the contract.
+1. Create a new HEI account and its HEI contract by following the instructions above in the "QualiChain Higher Education Module" (the optional steps). You need to access https://ropsten.etherscan.io/ to get the address of the contract, as illustrated (field ``To``):
+[![Captura-de-ecr-de-2020-03-24-14-51-50.png](https://i.postimg.cc/G2mTzf1N/Captura-de-ecr-de-2020-03-24-14-51-50.png)](https://postimg.cc/jWBjSZ2Q)
 
 2. In the consortium app, by following the instructions below you will register the new HEI using the "Register HEI" form. Notice that this operation is being done by the HEI for which you configured the consortium app ("Installing and Running" above, HEI 1 by default). In the form, the "HEI identifier" field corresponds to the DID of a HEI and the "contract address" field to the respective HEI contract. 
+[![Captura-de-ecr-de-2020-03-24-15-12-46.png](https://i.postimg.cc/TPNGnN2C/Captura-de-ecr-de-2020-03-24-15-12-46.png)](https://postimg.cc/Y4FJH3WW)
 * Run ``npm start`` to execute the consortium app.
 * Insert in the "HEI identifier" field "did:ethr:{address of the new HEI's account}" and the HEI contract address in the respective field. 
 * Press submit.
@@ -115,6 +118,7 @@ In the ``QualiChain Consortium`` directory execute the consortium app by doing t
 * Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start`` to execute the consortium app.
 * The new HEI appears in the "Pending HEI registrations" form. Now you can vote on the registration of a new HEI by clicking on it. 
+[![Captura-de-ecr-de-2020-03-24-15-13-53.png](https://i.postimg.cc/yxgNJ4Fm/Captura-de-ecr-de-2020-03-24-15-13-53.png)](https://postimg.cc/K3bbVWpj)
 * Since the threshold value is 2 by default, a positive vote will make this poll successful. 
 
 4. The last form of the consortium app, "HEI Contract Address" allows checking if a HEI is part of the consortium. Insert there the address of the new HEI in the format "did:ethr:{address of the new HEI's account}", press submit and check if that is true. Notice that the new HEI is registered in a smart contract in the blockchain, so it takes some time (depending on the blockchain being used). If you are too fast, the registration may not have finished yet.
@@ -137,6 +141,7 @@ In the ``QualiChain Consortium`` directory execute the consortium app by doing t
 1. Change the minimum number of votes necessary to make a decision in the consortium. 
 * Run ``npm start`` to execute the consortium app.
 * Insert an integer in the "new value" field. Press submit.
+
 * Close the consortium app.
 
 2. Now another HEI has to vote in favor of chainging the threshold.
@@ -144,6 +149,7 @@ In the ``QualiChain Consortium`` directory execute the consortium app by doing t
 * Copy the Account number and the Private Key (without the initial ``0x``) respectively to lines 5 and 6 of file ``consortiumScript.js``.
 * Run ``npm start`` to execute the consortium app.
 * Notice how now you can vote on a new value for the threshold. Since the threshold value is 2 by default, a positive vote will make this poll successful.
+[![Captura-de-ecr-de-2020-03-24-15-17-30.png](https://i.postimg.cc/QVZjHBND/Captura-de-ecr-de-2020-03-24-15-17-30.png)](https://postimg.cc/y3jMG8Sp)
 
 ## Fenix
 https://github.com/FenixEdu/fenixedu-academic - baseline 
