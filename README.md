@@ -17,6 +17,7 @@ It also contains a set of mock accounts for the Ropsten blockchain, which can be
 Software tested on:
 * Ubuntu 18.04 bionic, 3 GB RAM, running as a virtual machine (VirtualBox), with nodejs v10.19.0
 * Ubuntu 18.04 bionic, 8 GB RAM
+* macOS Catalina 10.15.3, 8 GB RAM
 
 ## QualiChain Higher Education Module
 
