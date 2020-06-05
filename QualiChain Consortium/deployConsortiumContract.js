@@ -11,7 +11,7 @@ web3.eth.getTransactionCount(account, (err,txCount) => {
   const txObject = {
     nonce: web3.utils.toHex(txCount),
     gasLimit: web3.utils.toHex(3000000),
-    gasPrice: web3.utils.toHex(web3.utils.toWei('10','gwei')),
+    gasPrice: web3.utils.toHex(web3.utils.toWei('500','gwei')),
     data: contractByteCode
   };
 
