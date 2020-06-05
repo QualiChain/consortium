@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 const crypto = require('crypto');
 const Tx = require('ethereumjs-tx').Transaction;
 const chokidar = require('chokidar');
@@ -6,6 +7,7 @@ const IPFS = require('ipfs');
 var IPFSNode = null;
 const Web3 = require('web3');
 const web3 = new Web3('https://ropsten.infura.io/v3/66a470c1158f441cac9c502cd63d4b9b');
+var isWin = process.platform === "win32";
 
 const account = '0x2CefB619218825C0c670D8E77f7039e0693E1dDC';
 const privateKey = Buffer.from('26020431000baecb5e0ae79cc2fca00a8c4ce6e299889dcaa3a12b469383f2b5', 'hex');
@@ -53,7 +55,12 @@ console.log("QualiChain Higher Education Application is running...");
 
 function registerCertificate(path) {
   console.log("Building the transaction")
-  var id = path.split('/')[2].split('.')[0];
+  if (isWin)	{
+	    var id = path.split('\\')[2].split('.')[0];
+
+  }	else {
+		var id = path.split('/')[2].split('.')[0];
+  }
   var fileBytes = fs.readFileSync(path);
 
   var hashFunction = crypto.createHash('sha256');
@@ -98,7 +105,12 @@ function registerCertificate(path) {
 
 
 function revokeCertificate(path) {
-  var id = path.split('/')[2].split('.')[0];
+  if (isWin)	{
+	    var id = path.split('\\')[2].split('.')[0];
+
+  }	else {
+		var id = path.split('/')[2].split('.')[0];
+  }
 
   var data = contract.methods.revokeCertificate(parseInt(id)).encodeABI();
 
@@ -129,8 +141,12 @@ async function registerIPFS(completePath, fileBytes) {
   if(IPFSNode == null) {
     IPFSNode = await IPFS.create({silent: true});
   }
+  if (isWin)	{
+	var path = completePath.split('\\')[2];
 
-  const path = completePath.split('/')[2];
+  }	else {
+	var path = completePath.split('/')[2];
+  }
 
   try
   {
