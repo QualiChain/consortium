@@ -78,7 +78,7 @@ function registerCertificate(path) {
   const txObject = {
     nonce: web3.utils.toHex(txCount),
     gasLimit: web3.utils.toHex(3000000),
-    gasPrice: web3.utils.toHex(web3.utils.toWei('10','gwei')),
+    gasPrice: web3.utils.toHex(web3.utils.toWei('100','gwei')),
     to: contractAddress,
     data: data
   };  
