@@ -12,7 +12,7 @@ It also contains a set of mock accounts for the Ropsten blockchain, which can be
 **Note**: Some operations may fail when using the same blockchain (Ethereum, Ropsten,...) account, e.g., deploying a smart contract with an account that has already been used to deploy the same smart contract.
 
 ## Requirements
-* Nodejs version >= 10.0.0 and npm version >= 6.0.0 (tested with 10.16.1 and 10.19)
+* Nodejs version >= 10.0.0 and npm version >= 6.0.0 (tested with Nodejs 10.16.1, 10.19, 12.18.0)
 
 Software tested on:
 * Ubuntu 18.04 bionic, 3 GB RAM, running as a virtual machine (VirtualBox), with nodejs v10.19.0
