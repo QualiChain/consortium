@@ -160,6 +160,10 @@ https://github.com/ist-dsi/fenixedu-ist - customized modules
 
 https://github.com/ist-dsi-archive/fenix-ist - mock data
 
+## More information
+
+The design of this software is explained at the paper: Diogo Serranito, André Vasconcelos, Sérgio Guerreiro, Miguel Correia. Blockchain Ecosystem for Verifiable Qualifications. In Proceedings of the 2nd Conference on Blockchain Research & Applications for Innovative Networks and Services (BRAINS), Paris, France, September 2020. PDF of the paper: https://www.gsd.inesc-id.pt/~mpc/pubs/blockchain-ecosystem-brains2020.pdf / video of the presentation: https://www.youtube.com/watch?v=AQMa5BVU73w
+
 ## Contributors
 
 Main author: Diogo Serranito
