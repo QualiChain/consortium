@@ -8,7 +8,7 @@
     "web3": "^1.2.6"
   },
   "devDependencies": {
-    "electron": "^6.0.0"
+    "electron": "^9.4.0"
   },
   "scripts": {
     "start": "electron ."
