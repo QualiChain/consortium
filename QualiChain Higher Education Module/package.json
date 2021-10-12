@@ -5,7 +5,7 @@
   "main": "HE_App.js",
   "dependencies": {
     "chokidar": "^3.0.2",
-    "electron": "^6.0.0",
+    "electron": "^11.5.0",
     "ethereumjs-tx": "^2.1.2",
     "ipfs": "^0.41.2",
     "web3": "^1.2.6"
